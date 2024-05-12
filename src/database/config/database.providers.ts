@@ -14,7 +14,7 @@ export const databaseProviders = [
     provide: PROVIDE,
     useFactory: async () => {
       const dataSource = new DataSource({
-        type: TYPE,
+        type: 'postgres',
         host: HOST,
         port: PORT,
         username: USERNAME,
