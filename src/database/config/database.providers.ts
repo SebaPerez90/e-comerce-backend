@@ -15,11 +15,11 @@ export const databaseProviders = [
     useFactory: async () => {
       const dataSource = new DataSource({
         type: TYPE,
-        host: 'postgresdb',
+        host: HOST,
         port: PORT,
         username: USERNAME,
         password: PASSWORD,
-        database: process.env.DATABASE,
+        database: DATABASE,
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         synchronize: true,
         dropSchema: true,
