@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Sebastian Perez",
+    "email": "sebastianalbertoperez90@example.com",
+    "password": "5*y_3l_4dm1n",
+    "phone": 123456789,
+    "country": "País 1",
+    "address": "Dirección 1",
+    "city": "Ciudad 1"
+  },
+  {
+    "name": "Alice Smith",
+    "email": "alice.smith@example.com",
+    "password": "Asd_*123",
+    "phone": 234567890,
+    "country": "País 2",
+    "address": "Dirección 2",
+    "city": "Ciudad 2"
+  },
+  {
+    "name": "Michael Johnson",
+    "email": "michael.johnson@example.com",
+    "password": "Asd_*123",
+    "phone": 345678901,
+    "country": "País 3",
+    "address": "Dirección 3",
+    "city": "Ciudad 3"
+  },
+  {
+    "name": "Emily Brown",
+    "email": "emily.brown@example.com",
+    "password": "Asd_*123",
+    "phone": 456789012,
+    "country": "País 4",
+    "address": "Dirección 4",
+    "city": "Ciudad 4"
+  },
+  {
+    "name": "Daniel Wilson",
+    "email": "daniel.wilson@example.com",
+    "password": "Asd_*123",
+    "phone": 567890123,
+    "country": "País 5",
+    "address": "Dirección 5",
+    "city": "Ciudad 5"
+  },
+  {
+    "name": "Sophia Taylor",
+    "email": "sophia.taylor@example.com",
+    "password": "Asd_*123",
+    "phone": 678901234,
+    "country": "País 6",
+    "address": "Dirección 6",
+    "city": "Ciudad 6"
+  },
+  {
+    "name": "David Martinez",
+    "email": "david.martinez@example.com",
+    "password": "Asd_*123",
+    "phone": 789012345,
+    "country": "País 7",
+    "address": "Dirección 7",
+    "city": "Ciudad 7"
+  },
+  {
+    "name": "Isabella Anderson",
+    "email": "isabella.anderson@example.com",
+    "password": "Asd_*123",
+    "phone": 890123456,
+    "country": "País 8",
+    "address": "Dirección 8",
+    "city": "Ciudad 8"
+  },
+  {
+    "name": "Ethan Thomas",
+    "email": "ethan.thomas@example.com",
+    "password": "Asd_*123",
+    "phone": 901234567,
+    "country": "País 9",
+    "address": "Dirección 9",
+    "city": "Ciudad 9"
+  },
+  {
+    "name": "Chayane",
+    "email": "chayane123@example.com",
+    "password": "Asd_*123",
+    "phone": 1234567890,
+    "country": "País 10",
+    "address": "Dirección 10",
+    "city": "Ciudad 10"
+  }
+]
