@@ -7,8 +7,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('M4 - E-COMERCE')
-    .setDescription('Module 4 project to the "Soy Henry" bootcamp')
+    .setTitle('E-Commerce Platform - Seba Perez')
+    .setDescription(
+      'A comprehensive project demonstrating the development backend of an  e-commerce application',
+    )
     .setVersion('1.0')
     .addBearerAuth()
     .build();
