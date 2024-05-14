@@ -9,7 +9,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('E-Commerce Platform - Seba Perez')
     .setDescription(
-      'A comprehensive project demonstrating the development backend of an  e-commerce application',
+      'A comprehensive project demonstrating the development backend of an e-commerce application',
     )
     .setVersion('1.0')
     .addBearerAuth()
