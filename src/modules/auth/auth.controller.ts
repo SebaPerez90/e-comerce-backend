@@ -11,7 +11,7 @@ import {
 import { LoginUserDto } from './dto/loginUser.dto';
 import { CreateUserDto } from '../users/dto/createUser.dto';
 import { Public } from 'src/decorators/public.decorator';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { AdminAccessDto } from '../users/dto/admin.dto';
 
 @ApiTags('auth')
@@ -31,7 +31,10 @@ export class AuthController {
 
   @Post('signup')
   @Public()
-  @HttpCode(201)
+  @ApiOperation({
+    summary:
+      'Additionally to the requirement. Login was added when registering, for a better user experience',
+  })
   @UsePipes(new ValidationPipe())
   async signUp(@Body() userData: CreateUserDto) {
     const userWithoutPassword = await this.authService.signUp(userData);
@@ -44,6 +47,10 @@ export class AuthController {
   }
 
   @Put('admin-sesion')
+  @ApiOperation({
+    summary:
+      'There is no need to run this route because the products are automatically preloaded when the server is up.',
+  })
   @Public()
   @UsePipes(new ValidationPipe())
   async adminSesion(@Body() adminData: AdminAccessDto) {

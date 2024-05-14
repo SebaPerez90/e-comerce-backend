@@ -1,14 +1,17 @@
 import {
+  BadRequestException,
   Inject,
   Injectable,
   NotFoundException,
   OnModuleInit,
 } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { MoreThan, Repository } from 'typeorm';
 import { Product } from '../../database/entities/product.entity';
 import * as data from '../../utils/mock-data.json';
 import { Category } from 'src/database/entities/caterory.entity';
 import { UpdateProductDto } from './dto/updateProduct.dto';
+import { PostProductDto } from './dto/postProduct.dto';
+import { CategoriesService } from '../categories/categories.service';
 
 @Injectable()
 export class ProductsService implements OnModuleInit {
@@ -17,15 +20,21 @@ export class ProductsService implements OnModuleInit {
     private readonly productRepository: Repository<Product>,
     @Inject('CATEGORY_REPOSITORY')
     private readonly categoryRepository: Repository<Category>,
+    private readonly categoryService: CategoriesService,
   ) {}
 
   async onModuleInit() {
-    await this.seedProducts();
+    this.categoryService.seedCategories;
+    setTimeout(() => {
+      this.seedProducts();
+    }, 1000);
   }
   async getAllProducts(page: number, limit: number): Promise<Product[]> {
     const [products] = await this.productRepository.findAndCount({
       skip: (page - 1) * limit,
       take: limit,
+      where: { stock: MoreThan(0) },
+      relations: ['category'],
     });
 
     if (products.length === 0)
@@ -40,6 +49,16 @@ export class ProductsService implements OnModuleInit {
 
     if (!product) throw new NotFoundException('product not found or not exist');
     return product;
+  }
+
+  async postProduct(productData: PostProductDto) {
+    const foundProduct = await this.productRepository.findOne({
+      where: { name: productData.name },
+    });
+
+    if (foundProduct) throw new BadRequestException('product already exist');
+
+    return await this.productRepository.save(productData);
   }
 
   async updateProduct(productData: UpdateProductDto, productID: string) {
@@ -74,6 +93,7 @@ export class ProductsService implements OnModuleInit {
       const category = categories.find(
         (category) => category.name === element.category,
       );
+
       const product = new Product();
       product.name = element.name;
       product.description = element.description;
@@ -90,5 +110,10 @@ export class ProductsService implements OnModuleInit {
         .orUpdate(['description', 'price', 'imgUrl', 'stock'], ['name'])
         .execute();
     });
+
+    return {
+      message:
+        'The values of products names are unique and already exist in the products table',
+    };
   }
 }
